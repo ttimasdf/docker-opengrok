@@ -2,7 +2,7 @@
 service tomcat7 start
 
 # link mounted source directory to opengrok
-ln -s /src $OPENGROK_INSTANCE_BASE/src
+ln -sf /src $OPENGROK_INSTANCE_BASE/src
 
 # first-time index
 echo "** Running first-time indexing"
