@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 mkdir $OPENGROK_INSTANCE_BASE
 mkdir $OPENGROK_INSTANCE_BASE/data
 mkdir $OPENGROK_INSTANCE_BASE/etc
