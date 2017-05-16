@@ -6,8 +6,8 @@ mkdir $OPENGROK_INSTANCE_BASE/etc
 URL=()
 while [ -z $URL ];
 do
-    echo "Trying to fetch url"
-    URL=($(curl -s https://api.github.com/repos/OpenGrok/OpenGrok/releases -m5 |
+    echo "Trying to fetch latest release"
+    URL=($(curl -s https://api.github.com/repos/OpenGrok/OpenGrok/releases -m6 |
         grep 'browser_download_url.*tar.gz' |
         cut -f4 -d\"))
 done
