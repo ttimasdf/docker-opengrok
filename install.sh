@@ -9,6 +9,7 @@ apt-get install -y \
     subversion \
     mercurial \
     wget \
+    zip \
     inotify-tools
 apt-get clean
 rm -rf /var/lib/apt/lists/*
