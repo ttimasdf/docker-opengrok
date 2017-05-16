@@ -7,9 +7,9 @@ ENV OPENGROK_INSTANCE_BASE /grok
 ADD install.sh /usr/local/bin/install
 ADD run.sh /usr/local/bin/run
 ADD china.sh /tmp/china.sh
-RUN /tmp/china.sh
 
 RUN echo "install" \
+    && /tmp/china.sh \
     && apt-get update \
     && apt-get install -y \
          exuberant-ctags \
@@ -18,7 +18,7 @@ RUN echo "install" \
          mercurial \
          wget \
          inotify-tools \
-    && apt-get clean\
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && /usr/local/bin/install
 

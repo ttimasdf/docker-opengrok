@@ -15,7 +15,6 @@ export OPENGROK_FLUSH_RAM_BUFFER_SIZE="-m 256"
 
 sysctl -w fs.inotify.max_user_watches=8192000
 
-service tomcat7 start
 
 # link mounted source directory to opengrok
 if [ ! -e $OPENGROK_INSTANCE_BASE/src ]; then
