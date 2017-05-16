@@ -16,6 +16,7 @@ rm -rf /var/lib/apt/lists/*
 mkdir $OPENGROK_INSTANCE_BASE
 mkdir $OPENGROK_INSTANCE_BASE/data
 mkdir $OPENGROK_INSTANCE_BASE/etc
+echo {} > $OPENGROK_INSTANCE_BASE/data/statistics.json
 
 URL=()
 while [ -z $URL ];
@@ -28,7 +29,7 @@ done
 
 # Change download address to faster mirror if we're in China
 grep -qs github /etc/hosts && URL=${URL/github.com/dn-dao-github-mirror.qbox.me}
-echo "==== Downloading from $URL ===="
+echo "Downloading from $URL"
 wget $URL -qO /tmp/opengrok.tar.gz
 
 echo "==================== Extracting OpenGrok ===================="
