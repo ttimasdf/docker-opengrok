@@ -20,7 +20,7 @@ wget $URL -qO /tmp/opengrok.tar.gz
 echo "Extracting OpenGrok"
 tar xzf /tmp/opengrok.tar.gz -C /
 rm /tmp/opengrok.tar.gz
-mv opengrok-* opengrok
+mv /opengrok-* /opengrok
 
 cd /opengrok/bin
 ./OpenGrok deploy
