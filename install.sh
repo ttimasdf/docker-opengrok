@@ -3,12 +3,12 @@
 echo "==================== Installation begin ===================="
 /tmp/china.sh
 apt-get update
-apt-get install -y
-    exuberant-ctags
-    git
-    subversion
-    mercurial
-    wget
+apt-get install -y \
+    exuberant-ctags \
+    git \
+    subversion \
+    mercurial \
+    wget \
     inotify-tools
 apt-get clean
 rm -rf /var/lib/apt/lists/*
