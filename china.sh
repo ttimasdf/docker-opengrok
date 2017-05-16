@@ -10,7 +10,7 @@ if [ $LOC = "China" ];then
 	cat <<-EOF >>/etc/hosts
 		219.76.4.4 github-cloud.s3.amazonaws.com
 		EOF
-	wget https://mirrors.ustc.edu.cn/repogen/conf/debian-http-4-jessie -O /etc/apt/source.list
-	rm -R /etc/apt/source.list.d
+	wget https://mirrors.ustc.edu.cn/repogen/conf/debian-http-4-jessie -O /etc/apt/sources.list
+	rm -R /etc/apt/sources.list.d
 fi
 rm -- "$0"
