@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 export JAVA_OPTS="-Xmx8192m -server"
 export OPENGROK_FLUSH_RAM_BUFFER_SIZE="-m 256"
