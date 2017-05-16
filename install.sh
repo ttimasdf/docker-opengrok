@@ -12,8 +12,10 @@ do
         cut -f4 -d\"))
 done
 
+# Change download address to faster mirror if we're in China
+grep -qs github /etc/hosts && URL=${URL/github.com/dn-dao-github-mirror.qbox.me}
 echo "Downloading from $URL"
-wget $URL -O /tmp/opengrok.tar.gz
+wget $URL -qO /tmp/opengrok.tar.gz
 
 echo "Extracting OpenGrok"
 tar xzf /tmp/opengrok.tar.gz -C /
