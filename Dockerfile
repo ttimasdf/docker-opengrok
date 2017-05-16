@@ -18,7 +18,7 @@ RUN echo "install" \
          mercurial \
          wget \
          inotify-tools \
-    && apt clean\
+    && apt-get clean\
     && rm -rf /var/lib/apt/lists/* \
     && /usr/local/bin/install
 
