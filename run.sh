@@ -2,8 +2,6 @@
 if ! [ -f $OPENGROK_INSTANCE_BASE/deploy ]; then
   mkdir -p $OPENGROK_INSTANCE_BASE/data
   mkdir -p $OPENGROK_INSTANCE_BASE/etc
-  mkdir -p $OPENGROK_INSTANCE_BASE/src
-
 
   /opengrok/bin/OpenGrok deploy
   touch $OPENGROK_INSTANCE_BASE/deploy
