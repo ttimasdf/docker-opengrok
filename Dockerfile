@@ -3,6 +3,7 @@ MAINTAINER Tim Zhang "https://github.com/ttimasdf"
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV OPENGROK_INSTANCE_BASE /grok
+ENV OPENGROK_TOMCAT_BASE ${CATALINA_HOME}
 
 ADD install.sh /usr/local/bin/install
 ADD run.sh /usr/local/bin/run
