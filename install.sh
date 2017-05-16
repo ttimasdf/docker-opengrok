@@ -38,9 +38,5 @@ tar xzf /tmp/opengrok.tar.gz -C /
 rm /tmp/opengrok.tar.gz
 mv /opengrok-* /opengrok
 
-echo "==================== Waiting for Tomcat ===================="
-catalina.sh start
-wget -q --tries inf --retry-connrefused http://127.0.0.1:8080
-
 cd /opengrok/bin
 ./OpenGrok deploy
