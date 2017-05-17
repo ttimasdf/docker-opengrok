@@ -4,31 +4,34 @@ export JAVA_OPTS="-Xmx8192m -server"
 export OPENGROK_FLUSH_RAM_BUFFER_SIZE="-m 256"
 sysctl -w fs.inotify.max_user_watches=8192000
 
-if [ ! -f $OPENGROK_INSTANCE_BASE/etc/configuration.xml ]; then
+TARBALL=/tmp/opengrok.tar.gz
+if [ ! -f $OPENGROK_INSTANCE_BASE/.deployed.lock ]; then
   echo "=============== Initiating OpenGrok Instance ==============="
-  URL=()
-  while [ -z $URL ];
-  do
-      printf "Trying to fetch url...."
-      URL=($(curl -s https://api.github.com/repos/OpenGrok/OpenGrok/releases -m5 |
-          grep 'browser_download_url.*tar.gz' |
-          cut -f4 -d\"))
-      [ -n $URL ] && echo "Success" || echo "Failed"
-  done
+  if [[ ! "$1" ~= '^https?://' ]]; then
+    URL=()
+    while [ -z $URL ];
+    do
+        printf "Trying to fetch url...."
+        URL=($(curl -s https://api.github.com/repos/OpenGrok/OpenGrok/releases -m5 |
+            grep 'browser_download_url.*tar.gz' |
+            cut -f4 -d\"))
+        [ -n $URL ] && echo "Success" || echo "Failed"
+    done
+  fi
 
   # Change download address to a faster mirror if we're in China
-
   [ "$(loc)" = "China" ] && URL=${URL/github.com/dn-dao-github-mirror.qbox.me}
   echo "Downloading from $URL"
-  wget $URL -qO /tmp/opengrok.tar.gz
+  wget $URL -qO $TARBALL
 
   echo "==================== Extracting OpenGrok ===================="
-  tar xzf /tmp/opengrok.tar.gz -C /
-  rm /tmp/opengrok.tar.gz
+  tar xzf $TARBALL -C /
+  rm $TARBALL
   mv /opengrok-* /opengrok
 
   cd /opengrok/bin
   ./OpenGrok deploy
+  touch $OPENGROK_INSTANCE_BASE/.deployed.lock
 fi
 
 if [ -n "$FORCE_REINDEX_ON_BOOT" -o ! -e $OPENGROK_INSTANCE_BASE/data/timestamp ]; then

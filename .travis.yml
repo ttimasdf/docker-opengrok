@@ -1,0 +1,21 @@
+sudo: required
+
+services:
+  - docker
+
+language: go
+
+env:
+  global:
+    - secure: JN/MmuvYWKgQ78Zf45vt+I9kDB5lfWy0NrsdhhGiiXrk9GBB9odPlDX36uGAiuF+9z6wKTaFq2hzPlBHfhUHPslZzCY6iTNo+dsmhd7TEtVFxlmKZpYsvy6Mw0h9yC22nqTzjMgP8Wcu93Z/FF8IVGCNdIsvqIgrrVTgd8RAUs3WSoggjfPqKFwTnvE4uc+B6a7TumEXYAcBau/z8obY2aavabc9SijRngxi0kCv+C1a3owW+FjF55w1ktsHi3/axURu/z9e0LOZ1QJNY0EHnCdW0jIjE2Vr6U0nnQfNk+BxWII9L1od3qsmavqG1xEytuafPtr80Cvj0t+S9XlhKnQ7hHIDOkeErZ6EVMIZa1UR3wiDbZAGnTA/f9WkaiCpEq/0tH6ew12jnvP4PpkUqKWKgKv5pIwFHner6SQBq+5/KW8tpn3H9zgjlYXbia/lx6lLaH7djMiP1+WdBNlytx3c7KvK0C+xvpqZ63f/vryuONTMrUYZstT+MgwFZt79moV5oqI6fY9cu9qPCd87zs+Huu8/rA/B5XSnfaFuqbxUp1xqLjzMO8kiALOqeRQkbrxveQ2UMQdc5RLe5zFrKYRAnSucKqmfGoBiH/qPkDlxMk6QpML9TbzbnOa94uLMg5c/rCag5St2LSRv6Y4GIY3N3XDt3cIa4OAojQViNP8=
+    - secure: ZL53xj9LDyrw0m479dAj6wF/XlxPQ+dLrxduyVQqfRTCHyA4fCjViT+s3ANYppT9i1SezbRR5jOc8KjlZ4VQDhdjMdC4GNJ4O0yssDHD281uOd1lRDOaRQ0U5cCqtK7exeoCsWHsvP1xXPhm1XM3JEnEsx+zvEJgOnj9VNt3swY/v1Qa2TikWsFlswrN+/cqbOfaP3kQLoW3H9a5HXW/agA1+Y8SmJIy9tPVNv5JHFZEWOjzX1H6drK+dpqbwRa+5t4KRjxX5AtBXz9TjczexQYuFMs8vS+Vsyypy7ARhXPGS/t/DNrN8Z082aZLz8llhy8Vpvh90qsYMgYenNgw1+uInZZ8dlTupGTx0G9vPpjcUdOIx2oK5t1DAUnpJ29KlIlalrWP8d4zj3HFxn+2Hy14JTi7zlratSyGwQY9ewd8MRtqDvJ5a3zTlValZSo2NFkrxqH4xtgG85rN+lng8jidXGgTQh2xSn3l4k6YjudeqPupQSU6VDklpvREod1lgu3wy3/5v7Lh4eqZLVVGrA9ecbJk3MRzBCSoUliilHOVjEFMPfzdD+14OeUEP9Jwv6x2i0ewNOaTTJOemzRjl2VYQ7dOTtfCTcXFIpStGqgq73TLGtjqk6Y553igwuF43UD9QATE2o20sAvxWdnety702gbIOcAyWdwmkd3bv6s=
+    - REPO=${TRAVIS_REPO_SLUG/docker-/}
+
+
+script:
+  - export TAG=`[ "${TRAVIS_BRANCH}" = "master" ] && echo "latest" || echo "${TRAVIS_BRANCH}"`
+  - bash build_versions.sh
+after_success:
+  - docker login -u "${DOCKER_EML}" -p "${DOCKER_PSS}"
+  - docker images
+  - docker push "${REPO}"
