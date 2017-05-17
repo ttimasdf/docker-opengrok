@@ -3,7 +3,7 @@
 URLS_PATTERN='https?:(?:(?!p5p|pkg|src).)*(.tar.gz|\.zip|.tar.gz.zip)'
 
 FILE=/tmp/releases.txt
-# curl 'https://api.github.com/repos/OpenGrok/OpenGrok/releases' -o $FILE
+curl 'https://api.github.com/repos/OpenGrok/OpenGrok/releases' -o $FILE
 
 tags=($(grep 'tag_name' $FILE | cut -f4 -d\"))
 urls=($(grep -Po $URLS_PATTERN $FILE))

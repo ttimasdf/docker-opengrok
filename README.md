@@ -1,4 +1,5 @@
-# docker-opengrok
+# OpenGrok for Docker [![Build Status](https://travis-ci.org/ttimasdf/docker-opengrok.svg?branch=master)](https://travis-ci.org/ttimasdf/docker-opengrok) [![](https://images.microbadger.com/badges/version/ttimasdf/opengrok.svg)](https://hub.docker.com/r/ttimasdf/opengrok/) [![](https://images.microbadger.com/badges/image/ttimasdf/opengrok.svg)](https://microbadger.com/images/ttimasdf/opengrok/)
+
 
 The one-liner to spin up a code search engine
 
@@ -11,8 +12,6 @@ to start an instance of OpenGrok by one command.
 
 ## Docker Image
 
-[![](https://images.microbadger.com/badges/version/ttimasdf/opengrok.svg)](https://hub.docker.com/r/ttimasdf/opengrok/)
-[![](https://images.microbadger.com/badges/image/ttimasdf/opengrok.svg)](https://hub.docker.com/r/ttimasdf/opengrok/)
 
 ## Usage
 
