@@ -7,7 +7,7 @@ sysctl -w fs.inotify.max_user_watches=8192000
 TARBALL=/tmp/opengrok.tar.gz
 if [ ! -f $OPENGROK_INSTANCE_BASE/.deployed.lock ]; then
   echo "=============== Initiating OpenGrok Instance ==============="
-  if [[ ! "$1" ~= '^https?://' ]]; then
+  if [[ ! "$1" =~ '^https?://' ]]; then
     URL=()
     while [ -z $URL ];
     do
