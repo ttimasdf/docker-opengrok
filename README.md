@@ -9,6 +9,11 @@ It provides similar functions to [LXR](http://lxr.linux.no/) but much more.
 This project encapsulated OpenGrok into a docker container, allowing you
 to start an instance of OpenGrok by one command.
 
+## Docker Image
+
+[![](https://images.microbadger.com/badges/version/ttimasdf/opengrok.svg)](https://hub.docker.com/r/ttimasdf/opengrok/)
+[![](https://images.microbadger.com/badges/image/ttimasdf/opengrok.svg)](https://hub.docker.com/r/ttimasdf/opengrok/)
+
 ## Usage
 
 To start the OpenGrok, simply run:
