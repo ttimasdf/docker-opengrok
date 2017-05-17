@@ -7,7 +7,7 @@ ENV OPENGROK_TOMCAT_BASE ${CATALINA_HOME}
 
 ADD install.sh /usr/local/bin/install
 ADD run.sh /usr/local/bin/run
-ADD china.sh /opt/china.sh
+ADD loc.sh /usr/local/bin/loc
 
 RUN /usr/local/bin/install
 

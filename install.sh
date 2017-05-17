@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "==================== Installation begin ===================="
-/opt/china.sh -u
+loc -u
 apt-get update
 apt-get install -y \
     exuberant-ctags \

@@ -18,7 +18,7 @@ if [ ! -f $OPENGROK_INSTANCE_BASE/etc/configuration.xml ]; then
 
   # Change download address to a faster mirror if we're in China
 
-  [ "$(/opt/china.sh)" = "China" ] && URL=${URL/github.com/dn-dao-github-mirror.qbox.me}
+  [ "$(loc)" = "China" ] && URL=${URL/github.com/dn-dao-github-mirror.qbox.me}
   echo "Downloading from $URL"
   wget $URL -qO /tmp/opengrok.tar.gz
 
