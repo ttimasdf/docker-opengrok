@@ -1,7 +1,6 @@
 #!/bin/bash
 
 echo "==================== Installation begin ===================="
-env
 loc -u
 apt-get update
 apt-get install -y \

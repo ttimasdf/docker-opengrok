@@ -22,5 +22,5 @@ for tag in "${tags[@]}"; do
     [[ -z "$url" ]] && continue
     line="ENTRYPOINT [\"/usr/local/bin/run\", \"${url}\"]"
     sed "s%^ENTRYPOINT.*%${line}%" Dockerfile > Dockerfile.$tag
-    docker build -f "Dockerfile.$tag" -t $REPO:$tag .
+    docker build -f "Dockerfile.$tag" -t $REPO:$tag --build-arg CI=$CI .
 done
