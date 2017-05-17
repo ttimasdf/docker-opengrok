@@ -17,9 +17,10 @@ if [ ! -f $OPENGROK_INSTANCE_BASE/etc/configuration.xml ]; then
   done
 
   # Change download address to a faster mirror if we're in China
-  grep -qs github /etc/hosts && URL=${URL/github.com/dn-dao-github-mirror.qbox.me}
+
+  [ "$(/opt/china.sh)" = "China" ] && URL=${URL/github.com/dn-dao-github-mirror.qbox.me}
   echo "Downloading from $URL"
-  wget $URL -q --show-progress -O /tmp/opengrok.tar.gz
+  wget $URL -qO /tmp/opengrok.tar.gz
 
   echo "==================== Extracting OpenGrok ===================="
   tar xzf /tmp/opengrok.tar.gz -C /
@@ -39,7 +40,7 @@ fi
 # ... and we keep running the indexer to keep the container on
 echo "================ Waiting for source updates... ================"
 
-function file_watch {
+{
   if [ $INOTIFY_NOT_RECURSIVE ]; then
     touch $OPENGROK_INSTANCE_BASE/reindex
     INOTIFY_CMDLINE="inotifywait -m -e CLOSE_WRITE $OPENGROK_INSTANCE_BASE/reindex"
@@ -53,9 +54,7 @@ function file_watch {
     cd /opengrok/bin
     ./OpenGrok index /src
   done
-}
-
-file_watch &
+} &
 
 echo "==================== Waiting for Tomcat ===================="
 echo "Waiting for service become available... [this may take long]"
