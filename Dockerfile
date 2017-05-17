@@ -1,4 +1,4 @@
-FROM tomcat:8-jre8
+FROM tomcat
 MAINTAINER Tim Zhang "https://github.com/ttimasdf"
 
 ENV DEBIAN_FRONTEND noninteractive
