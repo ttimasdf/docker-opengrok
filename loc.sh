@@ -3,7 +3,7 @@
 # China specific optimization
 LOC=""
 env
-if [ -z "$LOC" -a -z "$CI" ]; then
+if [ -z "$LOC" -a "$CI" != "true" ]; then
     LOC=$(curl -s http://ip-api.com/csv|cut -d, -f2)
     sed -ie "s/^LOC.*/LOC='$LOC'/" "$0"
 fi

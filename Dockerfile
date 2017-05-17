@@ -1,9 +1,8 @@
 FROM tomcat
 MAINTAINER Tim Zhang "https://github.com/ttimasdf"
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV OPENGROK_INSTANCE_BASE /grok
-ENV OPENGROK_TOMCAT_BASE ${CATALINA_HOME}
+ENV DEBIAN_FRONTEND=noninteractive OPENGROK_INSTANCE_BASE=/grok OPENGROK_TOMCAT_BASE=${CATALINA_HOME}
+ARG CI=false
 
 ADD install.sh /usr/local/bin/install
 ADD run.sh /usr/local/bin/run

@@ -5,7 +5,7 @@ export OPENGROK_FLUSH_RAM_BUFFER_SIZE="-m 256"
 sysctl -w fs.inotify.max_user_watches=8192000
 
 TARBALL=/tmp/opengrok.tar.gz
-if [ ! -f $OPENGROK_INSTANCE_BASE/.deployed.lock ]; then
+if [ ! -f $OPENGROK_TOMCAT_BASE/webapps/source.war ]; then
   echo "=============== Initiating OpenGrok Instance ==============="
   if [[ ! "$1" =~ '^https?://' ]]; then
     URL=()
@@ -31,7 +31,6 @@ if [ ! -f $OPENGROK_INSTANCE_BASE/.deployed.lock ]; then
 
   cd /opengrok/bin
   ./OpenGrok deploy
-  touch $OPENGROK_INSTANCE_BASE/.deployed.lock
 fi
 
 if [ -n "$FORCE_REINDEX_ON_BOOT" -o ! -e $OPENGROK_INSTANCE_BASE/data/timestamp ]; then

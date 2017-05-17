@@ -14,7 +14,7 @@ env:
 
 script:
   - export TAG=`[ "${TRAVIS_BRANCH}" = "master" ] && echo "latest" || echo "${TRAVIS_BRANCH}"`
-  - docker build -t "$REPO:$TAG" .
+  - docker build -t "$REPO:$TAG" --build-arg CI=$CI .
   - bash build_versions.sh
 after_success:
   - docker login -u "${DOCKER_EML}" -p "${DOCKER_PSS}"
