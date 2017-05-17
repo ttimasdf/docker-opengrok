@@ -17,7 +17,8 @@ function geturl() {
 
 for tag in "${tags[@]}"; do
     url=$(geturl $tag)
-    echo $tag $url
+    echo "==================== Building version $tag ===================="
+    echo "Injecting url $url"
     [[ -z "$url" ]] && continue
     line="ENTRYPOINT [\"/usr/local/bin/run\", \"${url}\"]"
     sed "s%^ENTRYPOINT.*%${line}%" Dockerfile > Dockerfile.$tag

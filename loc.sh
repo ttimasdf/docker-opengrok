@@ -3,12 +3,12 @@
 # China specific optimization
 LOC=""
 
-if [ -z "$LOC" ]; then
+if [ -z "$LOC" -a -z "$CI" ]; then
     LOC=$(curl -s http://ip-api.com/csv|cut -d, -f2)
     sed -ie "s/^LOC.*/LOC='$LOC'/" "$0"
 fi
 
-if [ $LOC = "China" -a $# -gt 0 ];then
+if [ "$LOC" = "China" -a $# -gt 0 ];then
 	echo "=============== Optimizing for Chinese network.. ==============="
 
 	cat <<-EOF >>/etc/hosts
