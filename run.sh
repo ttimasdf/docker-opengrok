@@ -6,9 +6,9 @@ sysctl -w fs.inotify.max_user_watches=8192000
 
 if [ -n "$FORCE_REINDEX_ON_BOOT" -o ! -e $OPENGROK_INSTANCE_BASE/data/timestamp ]; then
   echo "================ Running first-time indexing ================"
-  cd /opengrok/bin
-  ./OpenGrok index /src
+  OPENGROK_WEBAPP_CFGADDR=none /opengrok/bin/OpenGrok index /src
 fi
+
 
 # ... and we keep running the indexer to keep the container on
 echo "================ Waiting for source updates... ================"
