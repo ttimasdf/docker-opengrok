@@ -8,7 +8,7 @@ if [ -z "$LOC" ]; then
     sed -ie "s/^LOC.*/LOC='$LOC'/" "$0"
 fi
 
-if [ $LOC = "China" -a $# -gt 1 ];then
+if [ $LOC = "China" -a $# -gt 0 ];then
 	echo "=============== Optimizing for Chinese network.. ==============="
 
 	cat <<-EOF >>/etc/hosts
