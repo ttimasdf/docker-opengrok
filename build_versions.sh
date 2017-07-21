@@ -20,7 +20,7 @@ for tag in "${tags[@]}"; do
     echo "==================== Building version $tag ===================="
     echo "Injecting url $url"
     [[ -z "$url" ]] && continue
-    line="ENTRYPOINT [\"/usr/local/bin/run\", \"${url}\"]"
-    sed "s%^ENTRYPOINT.*%${line}%" Dockerfile > Dockerfile.$tag
+    line="RUN /usr/local/bin/install \"${url}\""
+    sed "s%^RUN.*%${line}%" Dockerfile > Dockerfile.$tag
     docker build -f "Dockerfile.$tag" -t $REPO:$tag --build-arg CI=$CI .
 done

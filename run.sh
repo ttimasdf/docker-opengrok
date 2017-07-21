@@ -4,38 +4,14 @@ export JAVA_OPTS="-Xmx8192m -server"
 export OPENGROK_FLUSH_RAM_BUFFER_SIZE="-m 256"
 sysctl -w fs.inotify.max_user_watches=8192000
 
-TARBALL=/tmp/opengrok.tar.gz
+cd /opengrok/bin
 if [ ! -f $OPENGROK_TOMCAT_BASE/webapps/source.war ]; then
-  echo "=============== Initiating OpenGrok Instance ==============="
-  if [[ ! "$1" =~ '^https?://' ]]; then
-    URL=()
-    while [ -z $URL ];
-    do
-        printf "Trying to fetch url...."
-        URL=($(curl -s https://api.github.com/repos/OpenGrok/OpenGrok/releases -m5 |
-            grep 'browser_download_url.*tar.gz' |
-            cut -f4 -d\"))
-        [ -n $URL ] && echo "Success" || echo "Failed"
-    done
-  fi
-
-  # Change download address to a faster mirror if we're in China
-  [ "$(loc)" = "China" ] && URL=${URL/github.com/dn-dao-github-mirror.qbox.me}
-  echo "Downloading from $URL"
-  wget $URL -qO $TARBALL
-
-  echo "==================== Extracting OpenGrok ===================="
-  tar xzf $TARBALL -C /
-  rm $TARBALL
-  mv /opengrok-* /opengrok
-
-  cd /opengrok/bin
   ./OpenGrok deploy
 fi
 
 if [ -n "$FORCE_REINDEX_ON_BOOT" -o ! -e $OPENGROK_INSTANCE_BASE/data/timestamp ]; then
   echo "================ Running first-time indexing ================"
-  OPENGROK_WEBAPP_CFGADDR=none /opengrok/bin/OpenGrok index /src
+  OPENGROK_WEBAPP_CFGADDR=none ./OpenGrok index /src
 fi
 
 
@@ -53,7 +29,6 @@ echo "================ Waiting for source updates... ================"
   $INOTIFY_CMDLINE | while read f; do
     echo "===================== Updating index ====================="
     printf "...Due to file changed %s\n" "$f"
-    cd /opengrok/bin
     ./OpenGrok index /src
   done
 } &
