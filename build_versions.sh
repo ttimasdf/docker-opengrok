@@ -11,16 +11,16 @@ urls=($(grep -Po $URLS_PATTERN $FILE))
 function geturl() {
     local tag="$1"
     for url in "${urls[@]}"; do
-        [[ "$url" = *"$tag"* ]] && echo $url && return
+        [[ "$url" =~ "$tag" ]] && echo $url && return
     done
 }
 
 for tag in "${tags[@]}"; do
     url=$(geturl $tag)
     echo "==================== Building version $tag ===================="
-    echo "Injecting url $url"
     [[ -z "$url" ]] && continue
+    echo "Injecting url $url"
     line="RUN /usr/local/bin/install \"${url}\""
     sed "s%^RUN.*%${line}%" Dockerfile > Dockerfile.$tag
-    docker build -f "Dockerfile.$tag" -t $REPO:$tag --build-arg CI=$CI . || { echo "$tag docker build failed" && exit 1 }
+    docker build -f "Dockerfile.$tag" -t $REPO:$tag --build-arg CI=$CI . || ( echo "$tag docker build failed" && exit 1 )
 done
