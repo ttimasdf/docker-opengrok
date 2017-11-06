@@ -35,12 +35,12 @@ if [[ ! "$1" =~ '^https?://' ]]; then
 fi
 
 # Change download address to a faster mirror if we're in China
-[ "$(loc)" = "China" ] && URL=${URL/github.com/dn-dao-github-mirror.qbox.me}
+[ "$(loc)" = "China" ] && URL=${URL/github.com/dn-dao-github-mirror.daocloud.io}
 echo "Downloading from $URL"
 wget $URL -qO $TARBALL
 
 echo "Extracting OpenGrok...."
-tar xzf $TARBALL -C /
+tar xzf $TARBALL -C / || echo "Download failed! exiting.." && exit 1
 rm $TARBALL
 mv /opengrok-* /opengrok
 
