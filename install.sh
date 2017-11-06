@@ -32,18 +32,17 @@ if [[ "$1" = 'latest' ]]; then
             cut -f4 -d\"))
         [ -n $URL ] && echo "Success" || echo "Failed"
     done
-elif [[ "$1" =~ '^https?://' ]]; then
-    echo "============== Skipping OpenGrok retrieval =============="
+elif [[ "$1" =~ ^https?:// ]]; then
+    URL="$1"
+else
+    echo "Skipping OpenGrok binary link retrieval."
     exit
 fi
 
-# Change download address to a faster mirror if we're in China
-[ "$(loc)" = "China" ] && URL=${URL/github.com/dn-dao-github-mirror.daocloud.io}
 echo "Downloading from $URL"
 wget $URL -qO $TARBALL
 
-tar xzf $TARBALL -C / || { echo "Download failed! exiting.." && exit 1 }
+tar xzf $TARBALL -C / || { echo "Download failed! exiting.."; exit 1; }
 echo "Extracting OpenGrok...."
 rm $TARBALL
 mv /opengrok-* /opengrok
-
