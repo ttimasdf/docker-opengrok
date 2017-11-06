@@ -1,25 +1,13 @@
 #!/bin/bash
 
 echo "==================== Installation begin ===================="
-loc -u
-apt-get update
-apt-get install -y \
-    exuberant-ctags \
-    git \
-    subversion \
-    mercurial \
-    wget \
-    zip \
-    inotify-tools
-apt-get clean
-rm -rf /var/lib/apt/lists/*
 
 mkdir $OPENGROK_INSTANCE_BASE
 mkdir $OPENGROK_INSTANCE_BASE/data
 mkdir $OPENGROK_INSTANCE_BASE/etc
 echo {} > $OPENGROK_INSTANCE_BASE/data/statistics.json
 
-echo "=============== Initiating OpenGrok Instance ==============="
+echo "=============== Downloading $1 ==============="
 TARBALL=/tmp/opengrok.tar.gz
 
 if [[ "$1" = 'latest' ]]; then
@@ -42,7 +30,8 @@ fi
 echo "Downloading from $URL"
 wget $URL -qO $TARBALL
 
+[[ "$URL" =~ .zip ]] && mv $TARBALL $TARBALL.zip && unzip -p $TARBALL.zip > $TARBALL
 tar xzf $TARBALL -C / || { echo "Download failed! exiting.."; exit 1; }
 echo "Extracting OpenGrok...."
-rm $TARBALL
+rm $TARBALL*
 mv /opengrok-* /opengrok

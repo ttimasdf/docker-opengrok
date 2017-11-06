@@ -21,6 +21,6 @@ for tag in "${tags[@]}"; do
     [[ -z "$url" ]] && continue
     echo "Injecting url $url"
     line="RUN /usr/local/bin/install \"${url}\""
-    sed "s%^RUN.*%${line}%" Dockerfile > Dockerfile.$tag
+    sed "s#^RUN /usr/local/bin/install*#${line}#" Dockerfile > Dockerfile.$tag
     docker build -f "Dockerfile.$tag" -t $REPO:$tag --build-arg CI=$CI . || { echo "$tag docker build failed"; exit 1; }
 done
