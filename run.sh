@@ -4,6 +4,10 @@ export JAVA_OPTS="-Xmx8192m -server"
 export OPENGROK_FLUSH_RAM_BUFFER_SIZE="-m 256"
 sysctl -w fs.inotify.max_user_watches=8192000
 
+if [ ! -d '/opengrok' ]; then
+    /usr/local/bin/install latest
+fi
+
 cd /opengrok/bin
 if [ ! -f $OPENGROK_TOMCAT_BASE/webapps/source.war ]; then
   ./OpenGrok deploy
