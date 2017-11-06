@@ -32,7 +32,7 @@ if [[ "$1" = 'latest' ]]; then
             cut -f4 -d\"))
         [ -n $URL ] && echo "Success" || echo "Failed"
     done
-elif [[ ! "$1" =~ '^https?://' ]]; then
+elif [[ "$1" =~ '^https?://' ]]; then
     echo "============== Skipping OpenGrok retrieval =============="
     exit
 fi
