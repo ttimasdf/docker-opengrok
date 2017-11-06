@@ -20,9 +20,8 @@ RUN loc -u && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-
-RUN /usr/local/bin/install
-
 ENTRYPOINT ["/usr/local/bin/run"]
 
 EXPOSE 8080
+
+RUN /usr/local/bin/install
