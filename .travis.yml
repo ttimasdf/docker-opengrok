@@ -7,16 +7,21 @@ language: python
 
 env:
   global:
-    - secure: "XVuRDhQCNAjWdtn2Hvih8SrYrEbKeyD2SlENgF0RGYYJxaMQLufnkXj7AwXLdtBJ/VII826wxZf/AhAKChcbHr6QiB1w4JffbzRwuP1nRbuXjIUNWVM5OJ/htSs6C0Z+4XuHggHPhu33GVovMG5ay0s/OQROTZvKxj8T+3PyLh24PHpfSmVRgu/pF2XlT0J1fW66SknIAkVzhjGOttlEUl3/pLiboIrPXppyLdjH7sM0/dq3sQTeAKbZXdZ+XYjK7RNj5qSc5LL8TIWWO34jN9IW1JfVSLAIRfc7eHMi7J/1A4OeW3/nNZ2bDhRotU26qG5hfog5PBp15CChaIh92CAohMul9DnHHC1SAkeu49ifxW4cv6ZfPC1Raoc1LwQGRcOD3vEu4piH7+jCUIsarAzk/3peDEiw0XwhwAPpSh4GXYchnIvVM5cxkOYsStEB9aQ4UMRoS/dUTVOQF7sdulyqwc7UpKw9p/ucOsAVRwDjwQgtk/TM7zafIn3x5HD3WAivy8iKYJumqOjNk16KKuftXzBEDF1b0j7XNcNcNVqiDInxIfierqZmpHoGHilzui7O6GQx8Pac2HgKC5cx9WfY615caw/b7IekzEmob51k4GcahhIC5QBakwriCuTe5zWoIUGL1TmKST/HSlkSrHHyvYVCenXJ4K+ZxeRNhnM="
-    - secure: "JGIJsQvRAKxpyUzypDP2udu8yXoLjMAcTw+vm4HeoK+r/qlwxPvu1KosBcHKEYEcUVzL1oh/QnSQHIfhURhmlkP0yvxZ1/zupZ+EhWnj86QXE0t6utJwyM/+E2JLCEto+PAsHHS8EeELkKcYXyTXoWEeCzIXdRJ2CAAgd9qUxlPkaMWdzJ3+qVmMZJh0EGxEfYfbQa82CkaDdAFG5nnt9dGA5VZQlo7YVAiia8nleWWwut/V+dD199BfqbfmE43TP6JVPEnWhHYi9oIWe6XpV4qSkarBELVg6RfavIeciVdgU7NelduruhxNhfcQMIbsJ1OMrJek2zNgvhRiwcjZu0R1DtWO/1E3hEwObNPBToPu6qpCHmvdnAa7a1beGh7edJkFNxMyZbia+DlsbAb50+sXiBVTJQWFOwk6zOUrLwe1VHiKwegGEVYw5ZIBi0anO3mc84fbJ81sCkeC4HMIhTsCOPfZVzW1IwAIOjuf033hSvTGboT+BrsyzCfOrHIgdHMwkub4/iIq6cLcnk3eesSY81ugapS36JMrkFaoQOBhXVDP9fxSxmxGMZDL5FZTXTLXoD1Eh6PuN/qAV8FV/REq8BPXCBLuoBA2T7+I1BhWRe3TtzjrA/zyCa4Lwuo85IkybgFBsM01qIORbvkzGfaNPvvt+qXTKjkx1Pe+o+c="
+    - secure: "omUpKkkHGs9ernvotah7Uz9TGHCx6lz3q76a5eTcpdoCNWFL3HRBvczSbsvPo9ikQZ2DPl57KW5RVg94UYrJQSv8edmPCT6NO9Sztxv1F+eFCJWUewn57n1bFyKTsDs+Jue+9e7phDzaJH0FvivSpUPcGn/r6q5/uZzX4gaAzCFcnaBY6DFJvtZLDGFjuJNPUZxlHDVoT/MJQOida7hViDR9ICOEswi3b1a+fpvyJL7EVYWbOxxKiFWXwAdo85HfA2PvJGLBeOYcxgr4eVDm8SbLYjuu8C3um+jWrWUF+hTzNMXnF6Y7VexDrsqg6aFKygzVAv0oeUqB8tCrfrmZh//qpH6+SieUE475Bzg4GwrxUNMzEyHItCZ6GX9VhLYObFkPXqwIND4Zi9c4hhHrBmbSmkVDcB0lcpGyaVk7tgUO+XN/U64jIYGYEJ3RqTj7QQ+XFOwjehGBKo+3jhf8nzVA+NfdJy+MGONedY6A+4qEKNBNBRQQ+9WVhijtDrQjeTLX7iTHeYc+uf4OJE/Qi0mktzU6cMd2KlYp4lOLyAXpKU848hI1h3Dgfkc+X9JaK/bjwPJRmb17Po67guEX2KTOPkiFd+qiIqfYwGjDxQp2NtKcpVlDgNZHzU2MFef7KSrz2bikfX8rcUYi4Wr55DJOGHWLiM2eEWtWU1XKA9E="  # DOCKER_ID
+    - secure: "X9mmr4yQb4xh+8Hh9M/aL0spUuFEWJjfULfPT9KiXaxLn2kSdFTedkDCeG53Kkbs7VvBPy813tY4fmW+ZW6UlmrKP2UotUh02/PkFljOcq8cKcHzVt5wI05qAr4/OWoR7Bsu8IDZH5TbbZqUQnvoQ/2C7o8isxLL/pFYgPRPxVmJYSRPOUuex7ggUT2IMgZNs+u5Eku3Rx/yQ4tZ58TWTzWgjitAhiOK/pp9kOVZkdmMJaWv0v1aoniob4N23muGn8Jv3n0sS9xB0tblgv9FsV19SKQHVDPIZqNGQwH229CPtZ/l3UjMrEXfSQhBcZdrJQVhdEwxKNKWYT4thw2KE6cpgiI92bCNPhYx9JC79tlX0qOfror3tEu4U9m38kPz2yAaX2qVZaz3Z/8BuOlERGXgz263/VPvw1pIy2Ttl1urp76lwzV/50f0K/uXRKiBi1S8jtYUgmdV5nT1b6gLZRvw/6FmCQeK+njdo5Ucf69dvN3l4AEqbZlALN9Us6+mHzhHs4/HbjPH+1/frfSo+FWm/5tlMWAIbQ0HggT4YIyMBRLXiAS3PS+M8YPtD/89pyyzww9GnabCzy7ZmCc1wEv/bNqPwN2g0tgF48ajm+WeC9MNDEkV0nyfXreKuQ2J++AlxTPUT4AAGROmW3sxa2bAvWVomlLymrDQYLyIN/I="  # DOCKER_PS
+    - secure: "mNBBw7qCUTS15r4UdkyCbOC2MwfeoeNp3DgP0SYQcASyRmIiG3vpBD7rajdoEIDEbc48fVVm7/uGWRfich/5xdSoghmscWsbIKHl1mp8MmCAxpg6SDakbNEEp8FCClMHQeAoNnahG65DhIRQKiIlFW4LTCdbFc+eBN2wrSz7ZgM32CRX7/CXmxPwO1ZLJplt4HTeVjDTbyCcr20uJHwc/8NfxL/7xXyY6lsSyvuiIihcpHphAaYSM7pBb7S/kxYOgxyPo3XrZq//zKHB2UMM+nb0hlW1dI7UrVrRS/wPD9C8ikXy5fEsTqfdKR4xIB1ayU9M3TRY5Mv6PKMmJ3yY5Vx0REb81hChDF2utKyZvkhpUbFgE3Wu8raS/lhiObGT42MSA79NG+pY40cS17I/rogmrx/s+iR9CnQmbih5Klefmhhjewy8/yX5v6D0d4Mf83MzKnEkb2p+nqrQa0hxmeFgPtOrgnQsHCQ+qyzw+PW4JJjOURSab4bytNVQ1x013PgBOyqJ6TkKhFY8ad4x/prWdPfqEUtIVvg3B40X4KQ5zlGlautbtvWo5hkJQftdfmQWTqBdaibeLnJwMLT7eEYlwExMNNEk54XU22Wh/u2A/TZQbZSqx3gfcsuh6DBw8pmEP6IS8/qm+udYxPdiC/wORESDm0t5vdOXyoAkgNY="  # MICROBADGER_WEBHOOK_URL
     - REPO=${TRAVIS_REPO_SLUG/docker-/}
 
 
 script:
   - export TAG=`[ "${TRAVIS_BRANCH}" = "master" ] && echo "latest" || echo "${TRAVIS_BRANCH}"`
-  - docker build -t "$REPO:$TAG" --build-arg CI=$CI .
+  - docker build -t "$REPO:$TAG" --build-arg CI=$CI
+        --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
+        --build-arg VCS_REF=`git rev-parse --short HEAD`
+        --build-arg VERSION=$TAG .
   - bash build_versions.sh
 after_success:
-  - docker login -u "${DOCKER_EML}" -p "${DOCKER_PSS}"
+  - docker login -u "${DOCKER_ID}" -p "${DOCKER_PS}"
   - docker images
   - docker push "${REPO}"
+  - curl -v "https://hooks.microbadger.com${MICROBADGER_WEBHOOK_URL}" --data "From Travis"

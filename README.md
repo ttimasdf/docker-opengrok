@@ -1,7 +1,9 @@
 # OpenGrok for Docker [![Build Status](https://travis-ci.org/ttimasdf/docker-opengrok.svg?branch=master)](https://travis-ci.org/ttimasdf/docker-opengrok) [![](https://images.microbadger.com/badges/version/ttimasdf/opengrok.svg)](https://hub.docker.com/r/ttimasdf/opengrok/) [![](https://images.microbadger.com/badges/image/ttimasdf/opengrok.svg)](https://microbadger.com/images/ttimasdf/opengrok/)
 
 
-The one-liner to spin up a code search engine
+> The one-liner to spin up a code search engine
+
+The `latest` tag query the Github API and download the latest release at **RUNTIME**, while the tagged version have pre-downloaded binary when building images. Choose wisely ;-p
 
 [OpenGrok](http://opengrok.github.io/OpenGrok/) is a code search engine
 made by Sun (and now Oracle).

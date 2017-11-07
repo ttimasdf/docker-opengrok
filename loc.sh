@@ -5,7 +5,7 @@ LOC=""
 
 if [ -z "$LOC" ]; then
     LOC=$(curl -s http://ip-api.com/csv|cut -d, -f2)
-    if [ "$CI" != "false" ]; then
+    if [ ! "$CI" = "true" ]; then
         sed -ie "s/^LOC.*/LOC='$LOC'/" "$0"
     fi
 fi

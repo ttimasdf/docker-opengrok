@@ -22,5 +22,8 @@ for tag in "${tags[@]}"; do
     echo "Injecting url $url"
     line="RUN /usr/local/bin/install \"${url}\""
     sed "s#^RUN /usr/local/bin/install*#${line}#" Dockerfile > Dockerfile.$tag
-    docker build -f "Dockerfile.$tag" -t $REPO:$tag --build-arg CI=$CI . || { echo "$tag docker build failed"; exit 1; }
+    docker build -f "Dockerfile.$tag" -t $REPO:$tag --build-arg CI=$CI \
+        --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+        --build-arg VCS_REF=`git rev-parse --short HEAD` \
+        --build-arg VERSION="$tag" . || { echo "Ver $tag docker build failed"; exit 1; }
 done
